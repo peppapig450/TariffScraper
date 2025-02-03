@@ -7,7 +7,11 @@ authors = [
 ]
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = ["pandas (>=2.2.3,<3.0.0)", "requests (>=2.32.3,<3.0.0)", "beautifulsoup4 (>=4.13.0,<5.0.0)"]
+dependencies = [
+    "pandas[excel,performance] (>=2.2.3,<3.0.0)",
+    "requests (>=2.32.3,<3.0.0)",
+    "beautifulsoup4 (>=4.13.0,<5.0.0)",
+]
 
 
 [build-system]
@@ -21,4 +25,3 @@ package-mode = false
 types-requests = "^2.32.0.20241016"
 pandas-stubs = "^2.2.3.241126"
 types-beautifulsoup4 = "^4.12.0.20241020"
-
