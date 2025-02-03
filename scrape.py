@@ -36,6 +36,12 @@ class ScraperConfig:
     encoding: str = 'utf-8'
     headers: Optional[Dict[str, str]] = None
 
+class CustomJSONEncoder(json.JSONEncoder):
+    def default(self, o):
+        if isinstance(o, (pd.Timestamp, datetime)):
+            return o.isoformat()
+        return super().default(o)
+    
 class TariffData:
     """Class to store and manipulate tariff data."""
     def __init__(self):
@@ -225,7 +231,7 @@ class TariffManager:
             }
             
             with open(json_file, "w", encoding='utf-8') as f:
-                json.dump(output_dict, f, indent=2, ensure_ascii=False)
+                json.dump(output_dict, f, indent=2, ensure_ascii=False, cls=CustomJSONEncoder)
 
             # Save to Excel with multiple sheets
             excel_file = self.output_dir / "combined_tariff_data.xlsx"
