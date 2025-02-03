@@ -1,0 +1,24 @@
+[project]
+name = "tariff-scraper"
+version = "0.1.0"
+description = "Multi-country tariff data scraper"
+authors = [
+    { name = "peppapig450", email = "developer.riverside511@passmail.net" },
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["pandas (>=2.2.3,<3.0.0)", "requests (>=2.32.3,<3.0.0)", "beautifulsoup4 (>=4.13.0,<5.0.0)"]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.group.dev.dependencies]
+types-requests = "^2.32.0.20241016"
+pandas-stubs = "^2.2.3.241126"
+types-beautifulsoup4 = "^4.12.0.20241020"
+
